@@ -49,7 +49,7 @@ const Blogs = ({posts}) => {
       </div>
       <div className='postsContainer'>
       <h1>Blog</h1>
-      <div className="posts-container">
+      <div className="grid">
       {posts.map((post)=><BlogCard title={post.title} coverPhoto={post.coverPhoto} key={post.id} datePublished={post.publishedOn} slug={post.slug} />)}
       </div>
       </div>
