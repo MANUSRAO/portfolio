@@ -34,7 +34,7 @@ const Navbar = () =>{
     return (
         <header>
         <nav className='navbar'>
-        <a href="http://localhost:3000/" className="logo">
+        <a href="/" className="logo">
             <Image
             src={profile}
             alt="Picture of the author"
