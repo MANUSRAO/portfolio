@@ -1,6 +1,20 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'imgbox.io',
+        port: '',
+        pathname: '/*/*',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.graphassets.com',
+        port:'',
+        pathname: '/*'
+      },
+    ],
+  },
   reactStrictMode: true,
 }
-
-module.exports = nextConfig
