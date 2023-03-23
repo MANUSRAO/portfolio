@@ -23,7 +23,7 @@ const Footer = () => {
                 </div>
                 <div className="footer-right">
                     <div>
-                    <p><a href="sdsd/"><i className="fa-brands fa-github"></i></a></p>
+                    <p><a href="https://github.com/MANUSRAO/portfolio" target="_blank"><i className="fa-brands fa-github"></i></a></p>
                     </div>
                 </div>
             </div>
