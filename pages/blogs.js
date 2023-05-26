@@ -54,6 +54,7 @@ const Blogs = ({posts}) => {
       </div>
       </div>
       <Footer/>
+        
     </>
   );
 };
