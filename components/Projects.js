@@ -10,7 +10,7 @@ const Projects = () =>{
                 skills:["Python","Django","Bootstrap"],
                 link:"https://newmain-production.up.railway.app/",
                 github:"https://github.com/MANUSRAO/newmain/",
-                img1:"https://imgbox.io/ib/lQkSdwUkQM.png",
+                img1:"https://user-images.githubusercontent.com/67941652/227946706-c9cb5d79-27ba-4ca9-93da-8f2f3d9d09c0.png",
             }}
         />
                 <Project
@@ -20,7 +20,7 @@ const Projects = () =>{
                 skills:["Python","Django","Web Scraping","CSS-Flex"],
                 link:"https://stockmap.vercel.app/heatmap",
                 github:"https://github.com/MANUSRAO/stockmap",
-                img1:"https://imgbox.io/ib/uvFbI0Z26K.png",
+                img1:"https://user-images.githubusercontent.com/67941652/243674461-51beed0b-22f7-43fe-acb9-ffb350098c6c.png",
             }}
         />
         <div className="button-center">
