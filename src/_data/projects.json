@@ -1,0 +1,41 @@
+[
+  {
+    "name": "nano",
+    "description": "Developed a high-performance URL shortener in Spring Boot and MySQL, optimized to handle massive traffic using sequential database indexing and time-based partitions. Secured the routing system with custom mathematical scrambling to prevent data scraping, and integrated an in-memory MaxMind geographic database to track real-time user locations across IPv4 and IPv6 networks.",
+    "tech": [
+      "Spring Boot",
+      "MySQL"
+    ],
+    "live": "",
+    "github": "https://github.com/MANUSRAO/nano",
+    "image": "",
+    "featured": true
+  },
+  {
+    "name": "Hostel Automation System",
+    "description": "Built a hostel management platform that automates authentication, data management and analytics. Admins get a dashboard for student enrolment, bulk mailing and analytics; students get a feedback system; and a companion app lets wardens verify student identity at the gate.",
+    "tech": [
+      "Python",
+      "Django",
+      "Bootstrap"
+    ],
+    "live": "https://newmain-production.up.railway.app/",
+    "github": "https://github.com/MANUSRAO/newmain/",
+    "image": "/assets/images/projects/hostel-automation.webp",
+    "featured": false
+  },
+  {
+    "name": "Stock Heatmap",
+    "description": "Built a heatmap of the Indian market's key indices, grouping constituents by sector and colouring them by daily performance. Data is scraped from a popular market site and laid out with CSS Flexbox, with one-click PNG export of market snapshots.",
+    "tech": [
+      "Python",
+      "Django",
+      "Web Scraping",
+      "CSS-Flex"
+    ],
+    "live": "https://stockmap.vercel.app/heatmap",
+    "github": "https://github.com/MANUSRAO/stockmap",
+    "image": "/assets/images/projects/stock-heatmap.webp",
+    "featured": false
+  }
+]

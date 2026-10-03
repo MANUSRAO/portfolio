@@ -1,0 +1,90 @@
+{% from "macros/icon.njk" import icon %}
+
+{% macro heatmap(weeks, months, width, height, label) %}
+<svg
+  viewBox="0 0 {{ width }} {{ height }}"
+  class="block h-auto w-full"
+  role="img"
+  aria-label="{{ label }}"
+>
+  {% for month in months %}
+    <text x="{{ month.index * 15 }}" y="9" class="fill-muted font-mono text-[10px]">{{ month.label }}</text>
+  {% endfor %}
+
+  {% for week in weeks %}
+    {% set weekIndex = loop.index0 %}
+    {% for day in week %}
+      {% if day %}
+        <rect
+          class="heat-cell"
+          data-level="{{ day.level }}"
+          x="{{ weekIndex * 15 }}"
+          y="{{ 20 + loop.index0 * 15 }}"
+          width="11"
+          height="11"
+          rx="2"
+        >
+          <title>{{ day.date }} — {{ day.count }} contribution{% if day.count != 1 %}s{% endif %}</title>
+        </rect>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</svg>
+{% endmacro %}
+
+{% if site.showContributions and contributions.hasData %}
+<section id="github" class="mt-16">
+  <div class="flex flex-wrap items-baseline justify-between gap-2">
+    <h2 class="font-mono text-[13px] tracking-[0.14em] text-muted uppercase">GitHub</h2>
+    <a
+      href="https://github.com/{{ site.githubUser }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-1.5 font-mono text-[11px] text-muted transition-colors hover:text-ink"
+    >
+      @{{ site.githubUser }}{{ icon("external", 11) }}
+    </a>
+  </div>
+
+  <div class="mt-4 rounded-xl border border-line bg-surface p-3 sm:p-4">
+    <div class="sm:hidden">
+      {{ heatmap(
+        contributions.recentWeeks,
+        contributions.recentMonths,
+        contributions.recentWidth,
+        contributions.height,
+        "GitHub contributions over the last 6 months"
+      ) }}
+    </div>
+
+    <div class="hidden sm:block">
+      {{ heatmap(
+        contributions.weeks,
+        contributions.months,
+        contributions.width,
+        contributions.height,
+        "GitHub contribution activity for the last year"
+      ) }}
+    </div>
+
+    <div class="mt-3 flex flex-wrap items-center justify-between gap-2 font-mono text-[11px] text-muted">
+      <span class="sm:hidden">
+        {{ contributions.recentTotal }} contribution{% if contributions.recentTotal != 1 %}s{% endif %} in the last 6 months
+      </span>
+      <span class="hidden sm:inline">
+        {{ contributions.total }} contribution{% if contributions.total != 1 %}s{% endif %} in the last year
+      </span>
+
+      <span class="flex items-center gap-1.5">
+        Less
+        {% for level in [0, 1, 2, 3, 4] %}
+          <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+            <rect class="heat-cell" data-level="{{ level }}" width="10" height="10" rx="2" />
+          </svg>
+        {% endfor %}
+        More
+      </span>
+    </div>
+  </div>
+</section>
+{% endif %}

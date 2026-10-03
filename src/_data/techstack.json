@@ -1,0 +1,15 @@
+[
+  { "name": "Java", "icon": "java" },
+  { "name": "JavaScript", "icon": "javascript" },
+  { "name": "Spring", "icon": "spring" },
+  { "name": "Node.js", "icon": "nodedotjs" },
+  { "name": "Express.js", "icon": "express" },
+  { "name": "React", "icon": "react" },
+  { "name": "Android", "icon": "android" },
+  { "name": "Kafka", "icon": "apachekafka" },
+  { "name": "Redis", "icon": "redis" },
+  { "name": "Git", "icon": "git" },
+  { "name": "AWS", "icon": "amazonwebservices" },
+  { "name": "MySQL", "icon": "mysql" },
+  { "name": "PostgreSQL", "icon": "postgresql" }
+]

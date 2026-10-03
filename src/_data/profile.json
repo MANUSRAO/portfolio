@@ -1,0 +1,11 @@
+{
+  "name": "Manu S Rao",
+  "role": "Software Development Engineer",
+  "tagline": "Software Development Engineer",
+  "bio": "I build scalable, event-driven backend systems. Currently working on a multi-channel notification system and the Journeys platform.",
+  "location": "Bangalore, India",
+  "email": "manusrao01@gmail.com",
+  "avatar": "/assets/images/profile.jpg",
+  "resume": "/assets/resume.pdf",
+  "available": "Open to anything interesting"
+}

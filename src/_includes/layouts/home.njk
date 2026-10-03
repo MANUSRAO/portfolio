@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+---
+{% from "macros/icon.njk" import icon %}
+<div class="mx-auto max-w-4xl px-6 pb-4">
+  {% include "components/hero.njk" %}
+  {% include "components/tech-stack.njk" %}
+
+  <section id="experience" class="mt-24">
+    <h2 class="font-mono text-[13px] tracking-[0.14em] text-muted uppercase">Experience</h2>
+
+    <div class="mt-6">
+      {% for item in experience %}
+        {% set dotAccent = loop.first %}
+        {% set lineFromTop = not loop.first %}
+        {% set lineLast = loop.last %}
+        {% include "components/experience-item.njk" %}
+      {% endfor %}
+    </div>
+
+    {% if education.length %}
+      <h3 class="mt-8 font-mono text-[11px] tracking-[0.14em] text-muted uppercase">Education</h3>
+      <div class="mt-5">
+        {% for item in education %}
+          {% set dotAccent = loop.first %}
+          {% set lineFromTop = false %}
+          {% set lineLast = loop.last %}
+          {% include "components/education-item.njk" %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </section>
+
+  {% set featuredProjects = projects | featured %}
+  <section id="projects" class="mt-16">
+    <div class="flex flex-wrap items-baseline justify-between gap-2">
+      <h2 class="font-mono text-[13px] tracking-[0.14em] text-muted uppercase">Projects</h2>
+      <a
+        href="/projects/"
+        class="inline-flex items-center gap-1.5 font-mono text-[11px] text-muted transition-colors hover:text-ink"
+      >All projects{{ icon("external", 11) }}</a>
+    </div>
+
+    <div class="mt-6 grid gap-3 {% if featuredProjects.length > 1 %}sm:grid-cols-2{% endif %}">
+      {% for item in featuredProjects %}
+        {% include "components/project-card.njk" %}
+      {% endfor %}
+    </div>
+  </section>
+
+  {% include "components/contributions.njk" %}
+  {% include "components/contact.njk" %}
+</div>

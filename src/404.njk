@@ -1,0 +1,18 @@
+---
+layout: layouts/page.njk
+title: Page not found
+description: That page does not exist.
+permalink: /404.html
+noindex: true
+---
+{% from "macros/icon.njk" import icon %}
+<p class="max-w-xl text-[14px] leading-[1.8] text-muted">
+  The page you were looking for does not exist, or it moved. Try the home page instead.
+</p>
+<a
+  href="/"
+  class="mt-6 inline-flex items-center gap-2 rounded-xl border border-line bg-surface px-5 py-3.5 text-[13.5px] font-medium transition-transform duration-200 hover:-translate-y-0.5"
+>
+  {{ icon("arrow-left", 15, "text-muted") }}
+  <span>Back home</span>
+</a>

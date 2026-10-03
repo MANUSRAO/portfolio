@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if title %}{{ title }} | {{ profile.name }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ description or site.description }}" />
+    {% if noindex %}
+    <meta name="robots" content="noindex, follow" />
+    {% else %}
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    {% endif %}
+    <meta name="author" content="{{ profile.name }}" />
+    <meta name="keywords" content="{{ site.keywords }}" />
+    <meta name="theme-color" content="{{ site.themeColor }}" />
+    <link rel="canonical" href="{{ page.url | absoluteUrl(site.url) }}" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+
+    {%- set useCover = cover and not (cover.endsWith(".avif")) %}
+    {%- set ogImageUrl = (cover if useCover else site.ogImage) | absoluteUrl(site.url) %}
+    <meta property="og:type" content="{{ ogType or 'website' }}" />
+    <meta property="og:site_name" content="{{ profile.name }}" />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:title" content="{% if title %}{{ title }} | {{ profile.name }}{% else %}{{ site.title }}{% endif %}" />
+    <meta property="og:description" content="{{ description or site.description }}" />
+    <meta property="og:url" content="{{ page.url | absoluteUrl(site.url) }}" />
+    <meta property="og:image" content="{{ ogImageUrl }}" />
+    {%- if not useCover %}
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ profile.name }} — {{ profile.role }}" />
+    {%- endif %}
+    {%- if ogType == "article" %}
+    <meta property="article:published_time" content="{{ page.date | isoDate }}" />
+    <meta property="article:author" content="{{ profile.name }}" />
+    {%- endif %}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{% if title %}{{ title }} | {{ profile.name }}{% else %}{{ site.title }}{% endif %}" />
+    <meta name="twitter:description" content="{{ description or site.description }}" />
+    <meta name="twitter:image" content="{{ ogImageUrl }}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/main.css" />
+
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          var dark = stored
+            ? stored === "dark"
+            : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.classList.toggle("dark", dark);
+        } catch (error) {}
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": {{ (site.url ~ "/#person") | jsonString | safe }},
+        "name": {{ profile.name | jsonString | safe }},
+        "url": {{ (site.url ~ "/") | jsonString | safe }},
+        "image": {{ (site.ogImage | absoluteUrl(site.url)) | jsonString | safe }},
+        "email": {{ ("mailto:" ~ profile.email) | jsonString | safe }},
+        "jobTitle": {{ profile.role | jsonString | safe }},
+        "description": {{ site.description | jsonString | safe }},
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressCountry": "IN"
+        },
+        "worksFor": { "@type": "Organization", "name": {{ experience[0].company | jsonString | safe }} },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": {{ education[0].institution | jsonString | safe }} },
+        "sameAs": {{ socials | profileUrls | jsonArray | safe }},
+        "knowsAbout": {{ techstack | techNames | jsonArray | safe }}
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": {{ (site.url ~ "/#website") | jsonString | safe }},
+        "name": {{ profile.name | jsonString | safe }},
+        "url": {{ (site.url ~ "/") | jsonString | safe }},
+        "inLanguage": "en-IN",
+        "publisher": { "@id": {{ (site.url ~ "/#person") | jsonString | safe }} }
+      }
+    </script>
+
+    {% block head %}{% endblock %}
+  </head>
+  <body class="min-h-screen bg-canvas font-sans text-ink antialiased">
+    <div class="pointer-events-none fixed inset-0 -z-10 bg-grid" aria-hidden="true"></div>
+
+    {% include "components/nav.njk" %}
+
+    <main class="relative z-10">
+      {{ content | safe }}
+    </main>
+
+    {% include "components/footer.njk" %}
+
+    <script src="/assets/js/theme.js" defer></script>
+    <script src="/assets/js/nav.js" defer></script>
+    <script src="/assets/js/clock.js" defer></script>
+    <script src="/assets/js/contact.js" defer></script>
+  </body>
+</html>

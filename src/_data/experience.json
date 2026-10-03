@@ -1,0 +1,32 @@
+[
+  {
+    "role": "Software Development Engineer I",
+    "company": "Hyperface Technologies",
+    "companyUrl": "",
+    "period": "Aug 2024 – Present",
+    "location": "Bangalore",
+    "type": "Full-time",
+    "bullets": [
+      "Designed a scalable, event-driven nudge system processing 1M+ notifications across SMS, Email, and WhatsApp by unifying multiple event sources and data schemas into a single pipeline.",
+      "Designed and delivered a scalable, issuer-agnostic backend architecture for Journeys PWA by driving core architectural decisions, defining the implementation strategy and executing end-to-end backend development.",
+      "Engineered an optimized file ingestion pipeline capable of processing 2M+ user records using asynchronous processing and multi-batch insertion, reducing processing time by 75% (from 3 hours to 45 minutes).",
+      "Developed an automated log-file generation system featuring user-defined column selection, output formatting, and a custom query generator supporting both tabular and fixed-variable fields; managed scheduling and encryption protocols, significantly increasing bandwidth for Project and Customer Success teams.",
+      "Engineered an A/B Testing (AB Config) framework utilizing deterministic hashing and percentage-based bucket segmentation to assign users to experimental variants; integrated this logic across both automated and manual user ingestion pipelines."
+    ],
+    "tech": []
+  },
+  {
+    "role": "SDE Intern",
+    "company": "Hyperface Technologies",
+    "companyUrl": "",
+    "period": "Jan 2024 – Aug 2024",
+    "location": "Bangalore",
+    "type": "Internship",
+    "bullets": [
+      "Architected a modular Android SDK to streamline the integration of Hyperface Web Applications and APIs; utilized a flavor-based architecture to deliver optimized builds for both Native Android and React Native environments.",
+      "Designed and implemented a secure SIM-binding mechanism featuring real-time verification via cryptographic hashes and SMS-provider webhooks; engineered proactive SIM-swap detection during every SDK initialization to mitigate account takeover and fraud risks.",
+      "Developed an instrumentation utility leveraging WebView JavaScript injection to capture lifecycle events and API performance; implemented a secure synchronization layer to transmit metrics to the backend using session token identification."
+    ],
+    "tech": []
+  }
+]

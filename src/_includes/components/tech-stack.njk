@@ -1,0 +1,32 @@
+<section id="stack" class="mt-10">
+  <h2 class="font-mono text-[13px] tracking-[0.14em] text-muted uppercase">Tech Stack</h2>
+
+  <ul class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-6">
+    {% for item in techstack %}
+      <li
+        tabindex="0"
+        class="group relative flex items-center justify-center rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-muted focus-visible:ring-offset-4 focus-visible:ring-offset-canvas"
+      >
+        <img
+          src="/assets/icons/tech/{{ item.icon }}.svg"
+          alt="{{ item.name }}"
+          width="30"
+          height="30"
+          class="h-[30px] w-[30px] object-contain transition-transform duration-200 group-hover:scale-110 group-focus:scale-110"
+          loading="lazy"
+          decoding="async"
+        />
+        <span
+          class="pointer-events-none absolute -top-9 left-1/2 z-20 -translate-x-1/2 rounded-md bg-ink px-2.5 py-1.5 font-mono text-[11px] font-medium whitespace-nowrap text-canvas opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100 group-focus:opacity-100"
+          aria-hidden="true"
+        >
+          {{ item.name }}
+          <span
+            class="absolute top-full left-1/2 size-0 -translate-x-1/2 border-x-4 border-t-4 border-x-transparent border-t-ink"
+            aria-hidden="true"
+          ></span>
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,17 @@
+{% from "macros/icon.njk" import icon %}
+<a
+  href="{{ social.url }}"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group flex min-w-0 flex-1 flex-col justify-between gap-4 rounded-xl border border-line bg-surface p-5 transition-transform duration-200 hover:-translate-y-0.5"
+>
+  <span class="flex items-center justify-between">
+    <span class="text-muted transition-colors group-hover:text-ink">{{ icon(social.icon, 18) }}</span>
+    {{ icon("external", 13, "text-line transition-colors group-hover:text-muted") }}
+  </span>
+
+  <span class="flex min-w-0 flex-col">
+    <span class="truncate text-[13.5px] font-medium">{{ social.handle }}</span>
+    <span class="mt-0.5 text-[12.5px] text-muted">{{ blurbs[social.label] }}</span>
+  </span>
+</a>

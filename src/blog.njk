@@ -1,0 +1,14 @@
+---
+layout: layouts/page.njk
+title: Blog
+permalink: /blog/
+---
+{% if collections.posts.length %}
+  <div class="grid gap-3 sm:grid-cols-2">
+    {% for post in collections.posts %}
+      {% include "components/post-card.njk" %}
+    {% endfor %}
+  </div>
+{% else %}
+  <p class="text-[14px] text-muted">No posts yet — the first one is in the works.</p>
+{% endif %}

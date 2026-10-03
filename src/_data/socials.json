@@ -1,0 +1,20 @@
+[
+  {
+    "label": "GitHub",
+    "handle": "MANUSRAO",
+    "url": "https://github.com/MANUSRAO",
+    "icon": "github"
+  },
+  {
+    "label": "LinkedIn",
+    "handle": "manu-s-rao",
+    "url": "https://linkedin.com/in/manu-s-rao",
+    "icon": "linkedin"
+  },
+  {
+    "label": "X (Twitter)",
+    "handle": "0x_manusrao",
+    "url": "https://x.com/0x_manusrao",
+    "icon": "x"
+  }
+]

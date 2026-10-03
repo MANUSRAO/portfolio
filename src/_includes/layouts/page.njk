@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+<div class="mx-auto max-w-4xl px-6 py-12">
+  <header class="mb-8">
+    <h1 class="text-2xl font-semibold tracking-tight sm:text-[2rem]">{{ title }}</h1>
+    {% if description %}
+      <p class="mt-2 max-w-2xl text-[14px] leading-[1.8] text-muted">{{ description }}</p>
+    {% endif %}
+  </header>
+
+  {{ content | safe }}
+</div>

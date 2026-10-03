@@ -1,0 +1,22 @@
+name: Daily rebuild
+
+# Rebuilds the site once a day so the GitHub contributions heatmap stays fresh.
+# Requires a Netlify build hook URL stored as the NETLIFY_BUILD_HOOK secret.
+on:
+  schedule:
+    - cron: "30 0 * * *" # 06:00 IST
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build
+        env:
+          HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "NETLIFY_BUILD_HOOK secret not set; skipping."
+            exit 0
+          fi
+          curl -fsS -X POST -d '{}' "$HOOK"

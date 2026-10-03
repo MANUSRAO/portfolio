@@ -1,32 +1,23 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+node_modules/
+_site/
+.cache/
+src/assets/css/main.css
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
 .DS_Store
 *.pem
 
-# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
 
-# local env files
+.env
 .env*.local
 
-# vercel
+.netlify/
 .vercel
+
+# local tooling + personal files
+.commandcode/
+/MANU_S_RAO_SDE_Resume.pdf
+/manu-profile.jpeg
+/screenshots/

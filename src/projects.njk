@@ -1,0 +1,11 @@
+---
+layout: layouts/page.njk
+title: Projects
+description: Things I have designed and built.
+permalink: /projects/
+---
+<div class="space-y-4">
+  {% for item in projects %}
+    {% include "components/project-row.njk" %}
+  {% endfor %}
+</div>

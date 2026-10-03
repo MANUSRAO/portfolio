@@ -1,0 +1,27 @@
+{% from "macros/icon.njk" import icon %}
+<a
+  href="{{ post.url }}"
+  class="group flex min-w-0 flex-col rounded-xl border border-line bg-surface p-6 transition-transform duration-200 hover:-translate-y-0.5"
+>
+  {% if post.data.cover %}
+    <img
+      src="{{ post.data.cover }}"
+      alt=""
+      width="1200"
+      height="630"
+      class="mb-4 w-full rounded-lg border border-line object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  {% endif %}
+
+  <h2 class="truncate text-[15px] font-semibold tracking-tight group-hover:underline">{{ post.data.title }}</h2>
+
+  {% if post.data.description %}
+    <p class="mt-2 line-clamp-3 text-[13.5px] leading-[1.7] text-muted">{{ post.data.description }}</p>
+  {% endif %}
+
+  <span class="mt-4 flex items-center gap-2 font-mono text-[11px] text-muted">
+    {{ icon("calendar", 12) }}{{ post.date | readableDate }}
+  </span>
+</a>

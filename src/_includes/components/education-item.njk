@@ -1,0 +1,30 @@
+{% from "macros/icon.njk" import icon %}
+<div class="relative pb-10 pl-6">
+  <span
+    class="absolute {% if lineFromTop %}top-0{% else %}top-[13px]{% endif %} {% if lineLast %}bottom-[30px]{% else %}bottom-0{% endif %} left-0 w-px -translate-x-1/2 bg-line"
+    aria-hidden="true"
+  ></span>
+  <span
+    class="absolute top-1.5 left-0 size-2 -translate-x-1/2 rounded-full {% if dotAccent %}bg-accent{% else %}bg-muted{% endif %}"
+    aria-hidden="true"
+  ></span>
+
+  <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+    <h3 class="text-[15px] font-semibold tracking-tight">{{ item.degree }}</h3>
+    <span class="font-mono text-[11px] text-muted">{{ item.period }}</span>
+  </div>
+
+  <div class="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[13px] text-muted">
+    <span class="font-medium text-ink">{{ item.institution }}</span>
+    {% if item.location %}
+      <span aria-hidden="true">·</span>
+      <span>{{ item.location }}</span>
+    {% endif %}
+  </div>
+
+  {% if item.detail %}
+    <p class="mt-2.5 flex items-center gap-2 text-[13.5px] text-muted">
+      {{ icon("education", 14, "shrink-0") }}{{ item.detail }}
+    </p>
+  {% endif %}
+</div>

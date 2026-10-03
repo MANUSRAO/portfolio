@@ -1,17 +1,25 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
+  "description": "Manu S Rao — portfolio",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "concurrently -n css,11ty -c yellow,cyan \"npm:dev:css\" \"npm:dev:11ty\"",
+    "dev:css": "tailwindcss -i src/assets/css/tailwind.css -o src/assets/css/main.css --watch",
+    "dev:11ty": "eleventy --serve",
+    "build": "npm run build:css && eleventy",
+    "build:css": "tailwindcss -i src/assets/css/tailwind.css -o src/assets/css/main.css --minify",
+    "clean": "rm -rf _site .cache src/assets/css/main.css",
+    "icons": "node scripts/fetch-icons.mjs",
+    "migrate:blog": "node scripts/migrate-hygraph-blog.mjs"
   },
   "dependencies": {
-    "graphql-request": "^5.2.0",
-    "next": "13.2.4",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy-fetch": "^5.0.2",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "@tailwindcss/cli": "^4.1.11",
+    "concurrently": "^9.1.2",
+    "tailwindcss": "^4.1.11"
   }
 }
