@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Manu S Rao — portfolio",
+  "description": "Manu S Rao \u2014 portfolio",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "concurrently -n css,11ty -c yellow,cyan \"npm:dev:css\" \"npm:dev:11ty\"",
     "dev:css": "tailwindcss -i src/assets/css/tailwind.css -o src/assets/css/main.css --watch",
